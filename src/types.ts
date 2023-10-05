@@ -20,6 +20,7 @@ export interface PropertyStructure {
   emissions: number;
   level: string;
   description: string;
+  isFavourite: boolean;
   image1: string;
   image2: string;
   image3: string;

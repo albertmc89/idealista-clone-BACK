@@ -1,5 +1,5 @@
 import debug from "debug";
-import startServer from "./server/startServer";
+import startServer from "./server/startServer.js";
 
 const port = process.env.PORT ?? 4009;
 

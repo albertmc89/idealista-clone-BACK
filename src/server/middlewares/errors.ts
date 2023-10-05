@@ -13,7 +13,7 @@ export const generalErrorHandler = (
   res.status(statusCode).json({ error: errorMessage });
 };
 
-export const endPointNotFound = (
+export const endpointNotFound = (
   _req: Request,
   res: Response,
   next: NextFunction,

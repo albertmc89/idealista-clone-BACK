@@ -78,6 +78,10 @@ const playerSchema = new Schema<PropertyStructure>({
     type: String,
     required: true,
   },
+  isFavourite: {
+    type: Boolean,
+    default: false,
+  },
   user: {
     type: String,
     ref: "User",

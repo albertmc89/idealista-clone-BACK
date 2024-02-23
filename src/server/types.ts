@@ -1,5 +1,5 @@
 import { type Request } from "express";
-import { ReceivedProperty } from "../types";
+import { type ReceivedProperty } from "../types";
 
 export interface AuthRequest extends Request {
   userId?: string;

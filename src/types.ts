@@ -29,3 +29,18 @@ export interface PropertyStructure {
   user: string;
   __v?: number;
 }
+
+export interface ReceivedProperty {
+  address: string;
+  price: number;
+  rooms: number;
+  meters: number;
+  year: number;
+  bathrooms: number;
+  aircon: boolean;
+  consumption: number;
+  elevator: boolean;
+  parking: boolean;
+  heating: boolean;
+  isFavourite: boolean;
+}

@@ -1,7 +1,6 @@
 import { Schema, model } from "mongoose";
-import { type PropertyStructure } from "../../types";
 
-const playerSchema = new Schema<PropertyStructure>({
+const propertySchema = new Schema({
   address: {
     type: String,
     required: true,
@@ -83,12 +82,12 @@ const playerSchema = new Schema<PropertyStructure>({
     default: false,
   },
   user: {
-    type: String,
+    type: Schema.Types.ObjectId,
     ref: "User",
     required: true,
   },
 });
 
-const Player = model("Player", playerSchema, "players");
+const Property = model("Property", propertySchema, "properties");
 
-export default Player;
+export default Property;

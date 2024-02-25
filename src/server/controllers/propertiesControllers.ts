@@ -1,4 +1,4 @@
-import { type Response, type NextFunction } from "express";
+import { type Request, type Response, type NextFunction } from "express";
 import CustomError from "../../CustomError/CustomError.js";
 import Property from "../../database/models/Property.js";
 import { type AuthRequest } from "../types.js";
@@ -22,6 +22,35 @@ export const getPropertiesController = async (
     const customError = new CustomError(
       "Couldn't retrieve properties",
       404,
+      (error as Error).message,
+    );
+
+    next(customError);
+  }
+};
+
+export const deletePropertyByIdController = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
+  const { idProperty } = req.params;
+
+  try {
+    const property = await Property.findByIdAndDelete({
+      _id: idProperty,
+    }).exec();
+
+    if (!property) {
+      next(new CustomError("Property not found", 404, "Property not found"));
+      return;
+    }
+
+    res.status(200).json({ message: "Property successfully deleted" });
+  } catch (error: unknown) {
+    const customError = new CustomError(
+      "Can't delete property",
+      500,
       (error as Error).message,
     );
 

@@ -1,8 +1,12 @@
 import express from "express";
-import { getPropertiesController } from "../controllers/propertiesControllers.js";
+import {
+  deletePropertyByIdController,
+  getPropertiesController,
+} from "../controllers/propertiesControllers.js";
 
 const propertiesRouter = express.Router();
 
 propertiesRouter.get("/", getPropertiesController);
+propertiesRouter.delete("/:idProperty", deletePropertyByIdController);
 
 export default propertiesRouter;

@@ -1,6 +1,8 @@
 import mongoose from "mongoose";
 import { type PropertyStructure } from "../../types";
 
+export const idPropertyMock = new mongoose.Types.ObjectId().toString();
+
 export const propertyMock: PropertyStructure[] = [
   {
     _id: new mongoose.Types.ObjectId().toString(),

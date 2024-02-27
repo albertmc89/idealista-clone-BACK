@@ -1,7 +1,7 @@
 import { type Request, type Response, type NextFunction } from "express";
 import CustomError from "../../CustomError/CustomError.js";
 import Property from "../../database/models/Property.js";
-import { RequestWithBody, type AuthRequest } from "../types.js";
+import { type RequestWithBody, type AuthRequest } from "../types.js";
 
 export const getPropertiesController = async (
   req: AuthRequest,

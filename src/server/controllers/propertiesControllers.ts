@@ -67,9 +67,9 @@ export const addPropertyController = async (
   const _id = req.userId;
 
   try {
-    const newProperty = await Property.create({ ...property, user: _id });
+    const newproperty = await Property.create({ ...property, user: _id });
 
-    res.status(201).json({ property: newProperty });
+    res.status(201).json({ property: newproperty });
   } catch (error) {
     const customError = new CustomError(
       "Couldn't create the property",

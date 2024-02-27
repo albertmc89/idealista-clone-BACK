@@ -1,7 +1,7 @@
 import { type Request, type Response, type NextFunction } from "express";
 import CustomError from "../../CustomError/CustomError.js";
 import Property from "../../database/models/Property.js";
-import { type AuthRequest } from "../types.js";
+import { type RequestWithBody, type AuthRequest } from "../types.js";
 
 export const getPropertiesController = async (
   req: AuthRequest,
@@ -51,6 +51,29 @@ export const deletePropertyByIdController = async (
     const customError = new CustomError(
       "Can't delete property",
       500,
+      (error as Error).message,
+    );
+
+    next(customError);
+  }
+};
+
+export const addPropertyController = async (
+  req: RequestWithBody,
+  res: Response,
+  next: NextFunction,
+) => {
+  const property = req.body;
+  const _id = req.userId;
+
+  try {
+    const newProperty = await Property.create({ ...property, user: _id });
+
+    res.status(201).json({ property: newProperty });
+  } catch (error) {
+    const customError = new CustomError(
+      "Couldn't create the property",
+      404,
       (error as Error).message,
     );
 

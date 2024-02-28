@@ -5,6 +5,14 @@ const propertySchema = new Schema({
     type: String,
     required: true,
   },
+  city: {
+    type: String,
+    required: true,
+  },
+  type: {
+    type: String,
+    required: true,
+  },
   price: {
     type: Number,
     required: true,
@@ -26,19 +34,19 @@ const propertySchema = new Schema({
     required: true,
   },
   parking: {
-    type: Boolean,
+    type: String,
     required: true,
   },
   elevator: {
-    type: Boolean,
+    type: String,
     required: true,
   },
   heating: {
-    type: Boolean,
+    type: String,
     required: true,
   },
   aircon: {
-    type: Boolean,
+    type: String,
     required: true,
   },
   consumption: {

@@ -6,17 +6,19 @@ export interface UserStructure {
 
 export interface PropertyStructure {
   _id: string;
+  type: string;
+  city: string;
   address: string;
   price: number;
   rooms: number;
   meters: number;
   year: number;
   bathrooms: number;
-  aircon: boolean;
+  aircon: string;
   consumption: number;
-  elevator: boolean;
-  parking: boolean;
-  heating: boolean;
+  elevator: string;
+  parking: string;
+  heating: string;
   emissions: number;
   level: string;
   description: string;
@@ -37,10 +39,10 @@ export interface ReceivedProperty {
   meters: number;
   year: number;
   bathrooms: number;
-  aircon: boolean;
+  aircon: string;
   consumption: number;
-  elevator: boolean;
-  parking: boolean;
-  heating: boolean;
+  elevator: string;
+  parking: string;
+  heating: string;
   isFavourite: boolean;
 }

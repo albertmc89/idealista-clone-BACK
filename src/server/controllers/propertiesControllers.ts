@@ -80,3 +80,25 @@ export const addPropertyController = async (
     next(customError);
   }
 };
+
+export const getPropertyByIdController = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
+  const { idProperty } = req.params;
+
+  try {
+    const property = await Property.findById(idProperty).exec();
+
+    res.status(200).json({ property });
+  } catch (error: unknown) {
+    const customError = new CustomError(
+      "Can't retrieve property",
+      500,
+      (error as Error).message,
+    );
+
+    next(customError);
+  }
+};

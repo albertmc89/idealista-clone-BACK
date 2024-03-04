@@ -4,7 +4,7 @@ import Property from "../../database/models/Property.js";
 import {
   type RequestWithBody,
   type AuthRequest,
-  AuthRequestWithBooleanBody,
+  type AuthRequestWithBooleanBody,
 } from "../types.js";
 
 export const getPropertiesController = async (

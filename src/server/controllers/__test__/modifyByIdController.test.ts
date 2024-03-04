@@ -1,5 +1,5 @@
 import { type NextFunction, type Response, type Request } from "express";
-import { RequestWithBody } from "../../types";
+import { type RequestWithBody } from "../../types";
 import Property from "../../../database/models/Property";
 import { propertyMock } from "../../mocks/propertiesMocks";
 import { modifyByIdController } from "../propertiesControllers";

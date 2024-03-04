@@ -18,7 +18,7 @@ export interface AuthRequestWithBooleanBody
   extends Request<
     Record<string, unknown>,
     Record<string, unknown>,
-    { isFavourite: boolean }
+    { isRented: boolean }
   > {
   userId?: string;
 }

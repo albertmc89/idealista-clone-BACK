@@ -22,7 +22,7 @@ export interface PropertyStructure {
   emissions: number;
   level: string;
   description: string;
-  isFavourite: boolean;
+  isRented: boolean;
   image1: string;
   image2: string;
   image3: string;
@@ -33,6 +33,8 @@ export interface PropertyStructure {
 }
 
 export interface ReceivedProperty {
+  type: string;
+  city: string;
   address: string;
   price: number;
   rooms: number;
@@ -41,8 +43,12 @@ export interface ReceivedProperty {
   bathrooms: number;
   aircon: string;
   consumption: number;
+  emissions: number;
+  level: string;
+  description: string;
   elevator: string;
   parking: string;
   heating: string;
-  isFavourite: boolean;
+  isRented: boolean;
+  image1: string;
 }

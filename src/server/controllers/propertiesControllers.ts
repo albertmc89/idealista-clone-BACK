@@ -1,7 +1,11 @@
 import { type Request, type Response, type NextFunction } from "express";
 import CustomError from "../../CustomError/CustomError.js";
 import Property from "../../database/models/Property.js";
-import { type RequestWithBody, type AuthRequest } from "../types.js";
+import {
+  type RequestWithBody,
+  type AuthRequest,
+  AuthRequestWithBooleanBody,
+} from "../types.js";
 
 export const getPropertiesController = async (
   req: AuthRequest,
@@ -97,6 +101,35 @@ export const getPropertyByIdController = async (
       "Can't retrieve property",
       500,
       (error as Error).message,
+    );
+
+    next(customError);
+  }
+};
+
+export const modifyByIdController = async (
+  req: AuthRequestWithBooleanBody,
+  res: Response,
+  next: NextFunction,
+) => {
+  try {
+    const { idProperty } = req.params;
+    const { isRented } = req.body;
+
+    const modifiedProperty = await Property.findByIdAndUpdate(
+      { _id: idProperty },
+      {
+        isRented: !isRented,
+      },
+      { returnDocument: "after" },
+    ).exec();
+
+    res.status(200).json({ property: modifiedProperty });
+  } catch (error: unknown) {
+    const customError = new CustomError(
+      (error as Error).message,
+      500,
+      "Couldn't modify the property",
     );
 
     next(customError);

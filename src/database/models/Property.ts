@@ -85,7 +85,7 @@ const propertySchema = new Schema({
     type: String,
     required: true,
   },
-  isFavourite: {
+  isRented: {
     type: Boolean,
     default: false,
   },

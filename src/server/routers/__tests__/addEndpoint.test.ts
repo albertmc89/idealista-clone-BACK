@@ -38,7 +38,7 @@ describe(`Given a ADD '/properties' endpoint`, () => {
     await User.create(userMock);
   });
 
-  describe("When it receives a request with an existan player id", () => {
+  describe("When it receives a request with an existan property id", () => {
     test(`Then it should respond with a status 201 and the property 'Calle Londres, Alella' posted'`, async () => {
       const expectedStatusCode = 201;
       const path = "/properties";

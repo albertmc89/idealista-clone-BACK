@@ -26,6 +26,7 @@ const req: Partial<RequestWithBody> = {
     bathrooms: 2,
     aircon: "Yes",
     consumption: 130,
+    rent: 300,
     elevator: "Yes",
     parking: "Yes",
     heating: "Yes",

@@ -20,6 +20,7 @@ export interface PropertyStructure {
   parking: string;
   heating: string;
   emissions: number;
+  rent: number;
   level: string;
   description: string;
   isRented: boolean;
@@ -44,6 +45,7 @@ export interface ReceivedProperty {
   aircon: string;
   consumption: number;
   emissions: number;
+  rent: number;
   level: string;
   description: string;
   elevator: string;

@@ -57,6 +57,10 @@ const propertySchema = new Schema({
     type: Number,
     required: true,
   },
+  rent: {
+    type: Number,
+    required: true,
+  },
   level: {
     type: String,
     required: true,
